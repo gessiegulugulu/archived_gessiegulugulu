@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gessiegulugulu.github.io/"/>
-  <updated>2019-10-10T05:08:34.168Z</updated>
+  <updated>2019-10-11T12:54:33.185Z</updated>
   <id>https://gessiegulugulu.github.io/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="https://gessiegulugulu.github.io/2019/10/10/Android%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84/"/>
     <id>https://gessiegulugulu.github.io/2019/10/10/Android项目架构/</id>
     <published>2019-10-10T04:51:12.000Z</published>
-    <updated>2019-10-10T05:08:34.168Z</updated>
+    <updated>2019-10-11T12:54:33.185Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="MVC-MVP-MVVC"><a href="#MVC-MVP-MVVC" class="headerlink" title="MVC MVP MVVC"></a>MVC MVP MVVC</h3><h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><h3 id="项目架构图"><a href="#项目架构图" class="headerlink" title="项目架构图"></a>项目架构图</h3>]]></content>
+    <content type="html"><![CDATA[<p>Android 开发常用的三种架构：MVC MVP MVVM</p><a id="more"></a><h3 id="MVC-MVP-MVVM"><a href="#MVC-MVP-MVVM" class="headerlink" title="MVC MVP MVVM"></a>MVC MVP MVVM</h3><h4 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4><h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><h4 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h4><h3 id="项目架构图"><a href="#项目架构图" class="headerlink" title="项目架构图"></a>项目架构图</h3>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;MVC-MVP-MVVC&quot;&gt;&lt;a href=&quot;#MVC-MVP-MVVC&quot; class=&quot;headerlink&quot; title=&quot;MVC MVP MVVC&quot;&gt;&lt;/a&gt;MVC MVP MVVC&lt;/h3&gt;&lt;h4 id=&quot;MVP&quot;&gt;&lt;a href=&quot;#MVP&quot; class
-      
+      &lt;p&gt;Android 开发常用的三种架构：MVC MVP MVVM&lt;/p&gt;
     
     </summary>
     
@@ -49,18 +46,13 @@
     <link href="https://gessiegulugulu.github.io/2019/10/10/FGPA%E6%9D%BF%E8%BF%90%E8%A1%8CLinux%E7%B3%BB%E7%BB%9F/"/>
     <id>https://gessiegulugulu.github.io/2019/10/10/FGPA板运行Linux系统/</id>
     <published>2019-10-09T16:43:33.000Z</published>
-    <updated>2019-10-10T05:08:12.089Z</updated>
+    <updated>2019-10-11T12:21:51.096Z</updated>
     
-    <content type="html"><![CDATA[<p>目标：在FGPA板上运行Linux系统即可</p><h3 id="配置电脑环境"><a href="#配置电脑环境" class="headerlink" title="配置电脑环境"></a>配置电脑环境</h3><p>安装串口和USB方面程序</p><p>新到的板子电子的味道有点好闻嗯。然后我还啥也没干</p>]]></content>
+    <content type="html"><![CDATA[<p>目标：在FGPA板上运行Linux系统即可</p><a id="more"></a><h3 id="配置电脑环境"><a href="#配置电脑环境" class="headerlink" title="配置电脑环境"></a>配置电脑环境</h3><p>安装串口和USB方面程序</p><p>新到的板子电子的味道有点好闻嗯。然后我还啥也没干</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;目标：在FGPA板上运行Linux系统即可&lt;/p&gt;
-&lt;h3 id=&quot;配置电脑环境&quot;&gt;&lt;a href=&quot;#配置电脑环境&quot; class=&quot;headerlink&quot; title=&quot;配置电脑环境&quot;&gt;&lt;/a&gt;配置电脑环境&lt;/h3&gt;&lt;p&gt;安装串口和USB方面程序&lt;/p&gt;
-&lt;p&gt;新到的板子
-      
+      &lt;p&gt;目标：在FGPA板上运行Linux系统即可&lt;/p&gt;
     
     </summary>
     
