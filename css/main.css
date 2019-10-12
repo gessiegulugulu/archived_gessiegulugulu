@@ -298,7 +298,7 @@ td {
   background: #fff;
   border: 2px solid #fff;
   border-radius: 2px;
-  color: #555;
+  color: #b4bbc5;
   display: inline-block;
   font-size: 0.875em;
   line-height: 2;
@@ -311,8 +311,8 @@ td {
 }
 .btn:hover {
   background: #fff;
-  border-color: #222;
-  color: #555;
+  border-color: #fff;
+  color: $back-deep;
 }
 .btn + .btn {
   margin: 0 0 8px 8px;
@@ -876,8 +876,8 @@ pre .javascript .function {
 }
 .comment-button-group .comment-button.active {
   background: #fff;
-  border-color: #222;
-  color: #555;
+  border-color: #fff;
+  color: $back-deep;
 }
 .comment-position {
   display: none;
@@ -1157,7 +1157,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #aa2f9f;
+  background: #29ff49;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
