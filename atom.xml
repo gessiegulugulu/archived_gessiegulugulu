@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gessiegulugulu.github.io/"/>
-  <updated>2019-10-12T16:30:51.277Z</updated>
+  <updated>2019-10-13T15:10:27.812Z</updated>
   <id>https://gessiegulugulu.github.io/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Chapter4 常用的实时调度方法</title>
+    <link href="https://gessiegulugulu.github.io/2019/10/13/Chapter4-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AE%9E%E6%97%B6%E8%B0%83%E5%BA%A6%E6%96%B9%E6%B3%95/"/>
+    <id>https://gessiegulugulu.github.io/2019/10/13/Chapter4-常用的实时调度方法/</id>
+    <published>2019-10-12T16:38:57.000Z</published>
+    <updated>2019-10-13T15:10:27.812Z</updated>
+    
+    <content type="html"><![CDATA[<p> 《实时系统》笔记：第四章 常用的实时调度方法</p><a id="more"></a><h3 id="时钟驱动调度方法"><a href="#时钟驱动调度方法" class="headerlink" title="时钟驱动调度方法"></a>时钟驱动调度方法</h3><h3 id="加权的轮转调度方法"><a href="#加权的轮转调度方法" class="headerlink" title="加权的轮转调度方法"></a>加权的轮转调度方法</h3><h3 id="优先级驱动方法"><a href="#优先级驱动方法" class="headerlink" title="优先级驱动方法"></a>优先级驱动方法</h3><h3 id="动态系统与静态系统"><a href="#动态系统与静态系统" class="headerlink" title="动态系统与静态系统"></a>动态系统与静态系统</h3><h3 id="有效释放时间与时限"><a href="#有效释放时间与时限" class="headerlink" title="有效释放时间与时限"></a>有效释放时间与时限</h3><h3 id="EDF和LST算法的最优性"><a href="#EDF和LST算法的最优性" class="headerlink" title="EDF和LST算法的最优性"></a>EDF和LST算法的最优性</h3><h3 id="EDF和LST算法的非最优性"><a href="#EDF和LST算法的非最优性" class="headerlink" title="EDF和LST算法的非最优性"></a>EDF和LST算法的非最优性</h3><h3 id="优先级驱动系统中验证定时约束的困难"><a href="#优先级驱动系统中验证定时约束的困难" class="headerlink" title="优先级驱动系统中验证定时约束的困难"></a>优先级驱动系统中验证定时约束的困难</h3><h3 id="脱机调度与联机调度"><a href="#脱机调度与联机调度" class="headerlink" title="脱机调度与联机调度"></a>脱机调度与联机调度</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 《实时系统》笔记：第四章 常用的实时调度方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="嵌入式" scheme="https://gessiegulugulu.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://gessiegulugulu.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="实时系统" scheme="https://gessiegulugulu.github.io/tags/%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Chapter3 实时系统参考模型</title>
+    <link href="https://gessiegulugulu.github.io/2019/10/13/Chapter3-%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://gessiegulugulu.github.io/2019/10/13/Chapter3-实时系统参考模型/</id>
+    <published>2019-10-12T16:34:18.000Z</published>
+    <updated>2019-10-13T15:05:18.537Z</updated>
+    
+    <content type="html"><![CDATA[<p> 《实时系统》笔记：第三章 实时系统参考模型</p><a id="more"></a><p>每个系统都由三个因素表征：</p><ul><li>工作/负载模型：描述系统支持的应用</li><li>资源模型：描述使用于应用的系统资源</li><li>算法：如何使用资源</li></ul><h3 id="处理器和资源"><a href="#处理器和资源" class="headerlink" title="处理器和资源"></a>处理器和资源</h3><ul><li><p>系统资源分类：<strong>处理器</strong>（服务器/活动资源）和<strong>资源</strong></p></li><li><p><strong>处理器（P<sub>i</sub>）</strong>分类：</p><ul><li><p>同一类型的处理器：功能一样且可以交换使用</p></li><li><p>两个传输链路在一对<u>发送器和接收器</u>之间的传输速率相同，则它们的处理器类型相同。</p></li><li><p>对称多处理器(SMP)系统中的处理器是同一类型</p></li><li><p>关注点为作业时无需考虑处理器类型</p></li></ul></li><li><p><strong>资源（R）</strong>：</p><ul><li><p>专指被动<strong>资源</strong></p></li><li><p>困惑？？</p><p><img src="D:@Others%5Cpassage%5Cblog%5Csource_posts%5CChapter3-%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.assets%5C1570978910913.png" alt="1570978910913"></p></li><li><p>可重用资源：使用过程中不会被消耗</p></li><li><p>丰富的资源：没有作业会因为缺少这种资源而不能执行（如内存资源）</p></li></ul></li></ul><h3 id="实时系统工作负荷的时间参数"><a href="#实时系统工作负荷的时间参数" class="headerlink" title="实时系统工作负荷的时间参数"></a>实时系统工作负荷的时间参数</h3><h3 id="周期性任务模型"><a href="#周期性任务模型" class="headerlink" title="周期性任务模型"></a>周期性任务模型</h3><h3 id="优先约束和数据依赖"><a href="#优先约束和数据依赖" class="headerlink" title="优先约束和数据依赖"></a>优先约束和数据依赖</h3><h3 id="其他类型的依赖关系"><a href="#其他类型的依赖关系" class="headerlink" title="其他类型的依赖关系"></a>其他类型的依赖关系</h3><h3 id="功能参数"><a href="#功能参数" class="headerlink" title="功能参数"></a>功能参数</h3><h3 id="作业的资源参数以及资源的参数"><a href="#作业的资源参数以及资源的参数" class="headerlink" title="作业的资源参数以及资源的参数"></a>作业的资源参数以及资源的参数</h3><h3 id="调度等级"><a href="#调度等级" class="headerlink" title="调度等级"></a>调度等级</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 《实时系统》笔记：第三章 实时系统参考模型&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="嵌入式" scheme="https://gessiegulugulu.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://gessiegulugulu.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="实时系统" scheme="https://gessiegulugulu.github.io/tags/%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Chapter2 强实时系统与弱实时系统</title>
     <link href="https://gessiegulugulu.github.io/2019/10/12/%E5%BC%BA%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E4%B8%8E%E5%BC%B1%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F/"/>
     <id>https://gessiegulugulu.github.io/2019/10/12/强实时系统与弱实时系统/</id>
     <published>2019-10-12T06:39:11.000Z</published>
-    <updated>2019-10-12T16:30:51.277Z</updated>
+    <updated>2019-10-12T16:34:40.710Z</updated>
     
     <content type="html"><![CDATA[<p>《实时系统》笔记：第二章 强实时系统与弱实时系统</p><a id="more"></a><h3 id="作业与处理器"><a href="#作业与处理器" class="headerlink" title="作业与处理器"></a>作业与处理器</h3><ul><li><p><strong>作业</strong>：能被系统调度和执行的<u>工作单元</u></p></li><li><p><strong>任务</strong>：共同提供某种系统功能的<u>一组相关作业</u></p></li><li><p><strong>处理器</strong>：(也称服务器 活动资源) 作业在执行的时候所占用的资源 (如: CPU 网络 磁盘)</p></li></ul><h3 id="释放时间、时限"><a href="#释放时间、时限" class="headerlink" title="释放时间、时限"></a>释放时间、时限</h3><p>作业的<u>释放时间</u>和<u>时限</u>将实时系统与非实时系统的作业区别开</p><ul><li><p><strong>释放时间</strong>：一个时刻。作业可以被调度和执行条件：</p><p>① 从该时刻开始及此后，</p><p>② 作业的数据和控制条件得到满足</p></li><li><p><strong>时限</strong>：一个时刻。此时刻前要求作业完成执行。“作业没有时限”</p></li><li><p><strong>响应时间</strong>： 从作业的释放时间到完成时间的时间长度</p><ul><li>相对时限：作业的最大允许响应时间</li><li>绝对时限：时限也称绝对时限=释放时间+相对时限</li></ul></li></ul><h3 id="强定时约束与弱定时约束"><a href="#强定时约束与弱定时约束" class="headerlink" title="强定时约束与弱定时约束"></a>强定时约束与弱定时约束</h3><h4 id="定时约束"><a href="#定时约束" class="headerlink" title="定时约束"></a>定时约束</h4><p><strong>定时约束</strong>： 对作业的定时行为所施加的约束。</p><p>分为两类：强实时约束与弱实时约束</p><p>最简单的定时约束：释放时间与相对或绝对时限来描述</p><ul><li><strong>强定时约束/强时限</strong>：施加情景：作业超过时限，产生的延迟结果灾难性</li><li><strong>弱定时约束/强时限</strong>：施加情景：延迟不造成严重后果（但延迟完成的弱时限作业累加后可能）</li></ul><h4 id="确定作业强弱性的方法"><a href="#确定作业强弱性的方法" class="headerlink" title="确定作业强弱性的方法"></a>确定作业强弱性的方法</h4><ol><li><p><strong>结果的有用性</strong>：</p><ul><li><p>是作业延缓大小的一个函数 – 度量作业相对于时限来说完成的有多晚。</p><ul><li><p>提前完成：作业延缓为0；</p><p>延迟完成：作业延缓=完成时间 - 作业时限</p></li><li><p>弱实时作业：延缓↑  执行结果的有用性：逐渐减少</p><p>强实时作业：延缓↑  执行结果的有用性：急剧下降甚至为负</p></li></ul></li><li><p>定量表述强弱时限的区别。</p><ul><li>有用性下降慢，时限更弱。</li><li>量化度量：定义强/弱实时的约束频谱。</li></ul></li><li><p>也表示了系统整体性能</p></li></ul></li><li><p><strong>必然或然表述</strong></p><ul><li>强时限：该作业一次也不能错过时限。</li><li>弱时限：可以接受延误低概率发生</li></ul></li><li><p><strong>时间服务质量保证</strong></p><p><strong>a.</strong> 验证：通过可证的正确、有效过程说明；或详尽的模拟/测试 说明。</p><p><strong>b.</strong> 本书大部分描述：</p><p>① 有效的<u>验证算法</u>和<u>方法</u>；</p><p>② 允许系统被如此验证的<u>调度策略</u>和<u>资源管理策略</u>；</p><p><strong>c.</strong> <strong>时间质量保证</strong>（guaranteed）：用户要求验证系统总能满足<u>定时约束</u></p><p>​    <strong>服务质量保证</strong>（best-effort）：不需要验证，或系统满足<u>统计约束</u></p></li></ol><h3 id="强实时系统"><a href="#强实时系统" class="headerlink" title="强实时系统"></a>强实时系统</h3><ul><li>完成有强时限要求的作业并无好处。</li><li>减小作业流的响应时间抖动有好处且关键。</li><li>经常会选择延缓强实时作业的开始和完成时间，以便把时间让给弱实时或后台作业。</li></ul><h3 id="弱实时系统"><a href="#弱实时系统" class="headerlink" title="弱实时系统"></a>弱实时系统</h3><ul><li>要求经常用概率词汇来描述。</li></ul>]]></content>
     

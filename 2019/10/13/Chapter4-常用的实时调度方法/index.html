@@ -56,14 +56,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Cytb6f">
-<meta property="og:url" content="https://gessiegulugulu.github.io/archives/index.html">
+  <meta name="description" content="《实时系统》笔记：第四章 常用的实时调度方法">
+<meta name="keywords" content="嵌入式,实时系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter4 常用的实时调度方法">
+<meta property="og:url" content="https://gessiegulugulu.github.io/2019/10/13/Chapter4-常用的实时调度方法/index.html">
 <meta property="og:site_name" content="Cytb6f">
+<meta property="og:description" content="《实时系统》笔记：第四章 常用的实时调度方法">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T15:10:27.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cytb6f">
-  <link rel="canonical" href="https://gessiegulugulu.github.io/archives/">
+<meta name="twitter:title" content="Chapter4 常用的实时调度方法">
+<meta name="twitter:description" content="《实时系统》笔记：第四章 常用的实时调度方法">
+  <link rel="canonical" href="https://gessiegulugulu.github.io/2019/10/13/Chapter4-常用的实时调度方法/">
 
 
 <script id="page-configurations">
@@ -71,13 +76,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | Cytb6f</title>
+  <title>Chapter4 常用的实时调度方法 | Cytb6f</title>
   
 
 
@@ -221,226 +226,133 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gessiegulugulu.github.io/2019/10/13/Chapter4-常用的实时调度方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JMZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cytb6f">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Chapter4 常用的实时调度方法
+
           
-        
-        <span class="collection-header">嗯..! 目前共计 6 篇日志。 继续努力。</span>
-      </div>
-      
+        </h1>
 
-      
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-  
-  
+              
+                
+              
 
-  
+              <time title="创建时间：2019-10-13 0:38:57 / 修改时间：23:10:27" itemprop="dateCreated datePublished" datetime="2019-10-13T00:38:57+08:00">2019-10-13</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/嵌入式/" itemprop="url" rel="index"><span itemprop="name">嵌入式</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p> 《实时系统》笔记：第四章 常用的实时调度方法</p>
+<a id="more"></a>
+
+<h3 id="时钟驱动调度方法"><a href="#时钟驱动调度方法" class="headerlink" title="时钟驱动调度方法"></a>时钟驱动调度方法</h3><h3 id="加权的轮转调度方法"><a href="#加权的轮转调度方法" class="headerlink" title="加权的轮转调度方法"></a>加权的轮转调度方法</h3><h3 id="优先级驱动方法"><a href="#优先级驱动方法" class="headerlink" title="优先级驱动方法"></a>优先级驱动方法</h3><h3 id="动态系统与静态系统"><a href="#动态系统与静态系统" class="headerlink" title="动态系统与静态系统"></a>动态系统与静态系统</h3><h3 id="有效释放时间与时限"><a href="#有效释放时间与时限" class="headerlink" title="有效释放时间与时限"></a>有效释放时间与时限</h3><h3 id="EDF和LST算法的最优性"><a href="#EDF和LST算法的最优性" class="headerlink" title="EDF和LST算法的最优性"></a>EDF和LST算法的最优性</h3><h3 id="EDF和LST算法的非最优性"><a href="#EDF和LST算法的非最优性" class="headerlink" title="EDF和LST算法的非最优性"></a>EDF和LST算法的非最优性</h3><h3 id="优先级驱动系统中验证定时约束的困难"><a href="#优先级驱动系统中验证定时约束的困难" class="headerlink" title="优先级驱动系统中验证定时约束的困难"></a>优先级驱动系统中验证定时约束的困难</h3><h3 id="脱机调度与联机调度"><a href="#脱机调度与联机调度" class="headerlink" title="脱机调度与联机调度"></a>脱机调度与联机调度</h3>
     </div>
-  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-13T00:38:57+08:00"
-              content="2019-10-13">
-          10-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
+    
+    
+    
         
-          <a class="post-title-link" href="/2019/10/13/Chapter4-常用的实时调度方法/" itemprop="url">
-            <span itemprop="name">Chapter4 常用的实时调度方法</span>
-          </a>
-        
-      </h2>
+      
 
-    </header>
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/嵌入式/" rel="tag"><i class="fa fa-tag"></i> 嵌入式</a>
+            
+              <a href="/tags/实时系统/" rel="tag"><i class="fa fa-tag"></i> 实时系统</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/13/Chapter3-实时系统参考模型/" rel="next" title="Chapter3 实时系统参考模型">
+                  <i class="fa fa-chevron-left"></i> Chapter3 实时系统参考模型
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </article>
-
-
-
+  
   
   
 
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-13T00:34:18+08:00"
-              content="2019-10-13">
-          10-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/13/Chapter3-实时系统参考模型/" itemprop="url">
-            <span itemprop="name">Chapter3 实时系统参考模型</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-12T14:39:11+08:00"
-              content="2019-10-12">
-          10-12
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/12/强实时系统与弱实时系统/" itemprop="url">
-            <span itemprop="name">Chapter2 强实时系统与弱实时系统</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-10T12:51:12+08:00"
-              content="2019-10-10">
-          10-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/10/Android项目架构/" itemprop="url">
-            <span itemprop="name">Android 项目架构</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-10T00:43:33+08:00"
-              content="2019-10-10">
-          10-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/10/FGPA板运行Linux系统/" itemprop="url">
-            <span itemprop="name">FGPA板运行Linux系统</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-09T14:00:29+08:00"
-              content="2019-10-09">
-          10-09
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/09/hello-world/" itemprop="url">
-            <span itemprop="name">Quick Start</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -457,6 +369,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -469,6 +386,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#时钟驱动调度方法"><span class="nav-number">1.</span> <span class="nav-text">时钟驱动调度方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加权的轮转调度方法"><span class="nav-number">2.</span> <span class="nav-text">加权的轮转调度方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优先级驱动方法"><span class="nav-number">3.</span> <span class="nav-text">优先级驱动方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态系统与静态系统"><span class="nav-number">4.</span> <span class="nav-text">动态系统与静态系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有效释放时间与时限"><span class="nav-number">5.</span> <span class="nav-text">有效释放时间与时限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EDF和LST算法的最优性"><span class="nav-number">6.</span> <span class="nav-text">EDF和LST算法的最优性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EDF和LST算法的非最优性"><span class="nav-number">7.</span> <span class="nav-text">EDF和LST算法的非最优性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优先级驱动系统中验证定时约束的困难"><span class="nav-number">8.</span> <span class="nav-text">优先级驱动系统中验证定时约束的困难</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脱机调度与联机调度"><span class="nav-number">9.</span> <span class="nav-text">脱机调度与联机调度</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Chapter4 常用的实时调度方法</title>
+    <url>/2019/10/13/Chapter4-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AE%9E%E6%97%B6%E8%B0%83%E5%BA%A6%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p> 《实时系统》笔记：第四章 常用的实时调度方法</p>
+<a id="more"></a>
+
+<h3 id="时钟驱动调度方法"><a href="#时钟驱动调度方法" class="headerlink" title="时钟驱动调度方法"></a>时钟驱动调度方法</h3><h3 id="加权的轮转调度方法"><a href="#加权的轮转调度方法" class="headerlink" title="加权的轮转调度方法"></a>加权的轮转调度方法</h3><h3 id="优先级驱动方法"><a href="#优先级驱动方法" class="headerlink" title="优先级驱动方法"></a>优先级驱动方法</h3><h3 id="动态系统与静态系统"><a href="#动态系统与静态系统" class="headerlink" title="动态系统与静态系统"></a>动态系统与静态系统</h3><h3 id="有效释放时间与时限"><a href="#有效释放时间与时限" class="headerlink" title="有效释放时间与时限"></a>有效释放时间与时限</h3><h3 id="EDF和LST算法的最优性"><a href="#EDF和LST算法的最优性" class="headerlink" title="EDF和LST算法的最优性"></a>EDF和LST算法的最优性</h3><h3 id="EDF和LST算法的非最优性"><a href="#EDF和LST算法的非最优性" class="headerlink" title="EDF和LST算法的非最优性"></a>EDF和LST算法的非最优性</h3><h3 id="优先级驱动系统中验证定时约束的困难"><a href="#优先级驱动系统中验证定时约束的困难" class="headerlink" title="优先级驱动系统中验证定时约束的困难"></a>优先级驱动系统中验证定时约束的困难</h3><h3 id="脱机调度与联机调度"><a href="#脱机调度与联机调度" class="headerlink" title="脱机调度与联机调度"></a>脱机调度与联机调度</h3>]]></content>
+      <categories>
+        <category>嵌入式</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>实时系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Chapter3 实时系统参考模型</title>
+    <url>/2019/10/13/Chapter3-%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<p> 《实时系统》笔记：第三章 实时系统参考模型</p>
+<a id="more"></a>
+
+<p>每个系统都由三个因素表征：</p>
+<ul>
+<li>工作/负载模型：描述系统支持的应用</li>
+<li>资源模型：描述使用于应用的系统资源</li>
+<li>算法：如何使用资源</li>
+</ul>
+<h3 id="处理器和资源"><a href="#处理器和资源" class="headerlink" title="处理器和资源"></a>处理器和资源</h3><ul>
+<li><p>系统资源分类：<strong>处理器</strong>（服务器/活动资源）和<strong>资源</strong></p>
+</li>
+<li><p><strong>处理器（P<sub>i</sub>）</strong>分类：</p>
+<ul>
+<li><p>同一类型的处理器：功能一样且可以交换使用</p>
+</li>
+<li><p>两个传输链路在一对<u>发送器和接收器</u>之间的传输速率相同，则它们的处理器类型相同。</p>
+</li>
+<li><p>对称多处理器(SMP)系统中的处理器是同一类型</p>
+</li>
+<li><p>关注点为作业时无需考虑处理器类型</p>
+</li>
+</ul>
+</li>
+<li><p><strong>资源（R）</strong>：</p>
+<ul>
+<li><p>专指被动<strong>资源</strong></p>
+</li>
+<li><p>困惑？？</p>
+<p><img src="D:@Others%5Cpassage%5Cblog%5Csource_posts%5CChapter3-%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.assets%5C1570978910913.png" alt="1570978910913"></p>
+</li>
+<li><p>可重用资源：使用过程中不会被消耗</p>
+</li>
+<li><p>丰富的资源：没有作业会因为缺少这种资源而不能执行（如内存资源）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="实时系统工作负荷的时间参数"><a href="#实时系统工作负荷的时间参数" class="headerlink" title="实时系统工作负荷的时间参数"></a>实时系统工作负荷的时间参数</h3><h3 id="周期性任务模型"><a href="#周期性任务模型" class="headerlink" title="周期性任务模型"></a>周期性任务模型</h3><h3 id="优先约束和数据依赖"><a href="#优先约束和数据依赖" class="headerlink" title="优先约束和数据依赖"></a>优先约束和数据依赖</h3><h3 id="其他类型的依赖关系"><a href="#其他类型的依赖关系" class="headerlink" title="其他类型的依赖关系"></a>其他类型的依赖关系</h3><h3 id="功能参数"><a href="#功能参数" class="headerlink" title="功能参数"></a>功能参数</h3><h3 id="作业的资源参数以及资源的参数"><a href="#作业的资源参数以及资源的参数" class="headerlink" title="作业的资源参数以及资源的参数"></a>作业的资源参数以及资源的参数</h3><h3 id="调度等级"><a href="#调度等级" class="headerlink" title="调度等级"></a>调度等级</h3>]]></content>
+      <categories>
+        <category>嵌入式</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>实时系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Chapter2 强实时系统与弱实时系统</title>
     <url>/2019/10/12/%E5%BC%BA%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E4%B8%8E%E5%BC%B1%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>《实时系统》笔记：第二章 强实时系统与弱实时系统</p>
