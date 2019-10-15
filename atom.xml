@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gessiegulugulu.github.io/"/>
-  <updated>2019-10-15T06:28:49.868Z</updated>
+  <updated>2019-10-15T07:24:01.305Z</updated>
   <id>https://gessiegulugulu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://gessiegulugulu.github.io/2019/10/15/test/"/>
+    <id>https://gessiegulugulu.github.io/2019/10/15/test/</id>
+    <published>2019-10-15T07:02:17.000Z</published>
+    <updated>2019-10-15T07:24:01.305Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="//gessiegulugulu.github.io/2019/10/15/test/....%5Cpublic%5Cimages%5Cpic%5C1571123063477.png" alt="1571123063477"></p> <img src="/2019/10/15/test/1571123063477.png" title="This is an example image"> ]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;//gessiegulugulu.github.io/2019/10/15/test/....%5Cpublic%5Cimages%5Cpic%5C1571123063477.png&quot; alt=&quot;1571123063477&quot;&gt;&lt;/p&gt;
+ &lt;img src
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Cordova打包构建好的vue项目方法</title>
@@ -69,9 +92,9 @@
     <link href="https://gessiegulugulu.github.io/2019/10/13/Chapter3-%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/"/>
     <id>https://gessiegulugulu.github.io/2019/10/13/Chapter3-实时系统参考模型/</id>
     <published>2019-10-12T16:34:18.000Z</published>
-    <updated>2019-10-13T15:05:18.537Z</updated>
+    <updated>2019-10-15T07:36:34.387Z</updated>
     
-    <content type="html"><![CDATA[<p> 《实时系统》笔记：第三章 实时系统参考模型</p><a id="more"></a><p>每个系统都由三个因素表征：</p><ul><li>工作/负载模型：描述系统支持的应用</li><li>资源模型：描述使用于应用的系统资源</li><li>算法：如何使用资源</li></ul><h3 id="处理器和资源"><a href="#处理器和资源" class="headerlink" title="处理器和资源"></a>处理器和资源</h3><ul><li><p>系统资源分类：<strong>处理器</strong>（服务器/活动资源）和<strong>资源</strong></p></li><li><p><strong>处理器（P<sub>i</sub>）</strong>分类：</p><ul><li><p>同一类型的处理器：功能一样且可以交换使用</p></li><li><p>两个传输链路在一对<u>发送器和接收器</u>之间的传输速率相同，则它们的处理器类型相同。</p></li><li><p>对称多处理器(SMP)系统中的处理器是同一类型</p></li><li><p>关注点为作业时无需考虑处理器类型</p></li></ul></li><li><p><strong>资源（R）</strong>：</p><ul><li><p>专指被动<strong>资源</strong></p></li><li><p>困惑？？</p><p><img src="D:@Others%5Cpassage%5Cblog%5Csource_posts%5CChapter3-%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.assets%5C1570978910913.png" alt="1570978910913"></p></li><li><p>可重用资源：使用过程中不会被消耗</p></li><li><p>丰富的资源：没有作业会因为缺少这种资源而不能执行（如内存资源）</p></li></ul></li></ul><h3 id="实时系统工作负荷的时间参数"><a href="#实时系统工作负荷的时间参数" class="headerlink" title="实时系统工作负荷的时间参数"></a>实时系统工作负荷的时间参数</h3><h3 id="周期性任务模型"><a href="#周期性任务模型" class="headerlink" title="周期性任务模型"></a>周期性任务模型</h3><h3 id="优先约束和数据依赖"><a href="#优先约束和数据依赖" class="headerlink" title="优先约束和数据依赖"></a>优先约束和数据依赖</h3><h3 id="其他类型的依赖关系"><a href="#其他类型的依赖关系" class="headerlink" title="其他类型的依赖关系"></a>其他类型的依赖关系</h3><h3 id="功能参数"><a href="#功能参数" class="headerlink" title="功能参数"></a>功能参数</h3><h3 id="作业的资源参数以及资源的参数"><a href="#作业的资源参数以及资源的参数" class="headerlink" title="作业的资源参数以及资源的参数"></a>作业的资源参数以及资源的参数</h3><h3 id="调度等级"><a href="#调度等级" class="headerlink" title="调度等级"></a>调度等级</h3>]]></content>
+    <content type="html"><![CDATA[<p> 《实时系统》笔记：第三章 实时系统参考模型</p><a id="more"></a><p>每个系统都由三个因素表征：</p><ul><li>工作/负载模型：描述系统支持的应用</li><li>资源模型：描述使用于应用的系统资源</li><li>算法：如何使用资源</li></ul><h3 id="处理器和资源"><a href="#处理器和资源" class="headerlink" title="处理器和资源"></a>处理器和资源</h3><ul><li><p>系统资源分类：<strong>处理器</strong>（服务器/活动资源）和<strong>资源</strong></p></li><li><p><strong>处理器（P<sub>i</sub>）</strong>分类：</p><ul><li><p>同一类型的处理器：功能一样且可以交换使用</p></li><li><p>两个传输链路在一对<u>发送器和接收器</u>之间的传输速率相同，则它们的处理器类型相同。</p></li><li><p>对称多处理器(SMP)系统中的处理器是同一类型</p></li><li><p>关注点为作业时无需考虑处理器类型</p></li></ul></li><li><p><strong>资源（R）</strong>：</p><ul><li><p>专指被动<strong>资源</strong></p></li><li><p>困惑？？</p><p><img src="//gessiegulugulu.github.io/2019/10/13/Chapter3-实时系统参考模型/D:@Others%5Cpassage%5Cblog%5Csource_posts%5CChapter3-%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%5C1570978910913.png" alt="1570978910913"></p> <img src="/2019/10/13/Chapter3-实时系统参考模型/1570978910913.png"> </li><li><p>可重用资源：使用过程中不会被消耗</p></li><li><p>丰富的资源：没有作业会因为缺少这种资源而不能执行（如内存资源）</p></li></ul></li></ul><h3 id="实时系统工作负荷的时间参数"><a href="#实时系统工作负荷的时间参数" class="headerlink" title="实时系统工作负荷的时间参数"></a>实时系统工作负荷的时间参数</h3><h3 id="周期性任务模型"><a href="#周期性任务模型" class="headerlink" title="周期性任务模型"></a>周期性任务模型</h3><h3 id="优先约束和数据依赖"><a href="#优先约束和数据依赖" class="headerlink" title="优先约束和数据依赖"></a>优先约束和数据依赖</h3><h3 id="其他类型的依赖关系"><a href="#其他类型的依赖关系" class="headerlink" title="其他类型的依赖关系"></a>其他类型的依赖关系</h3><h3 id="功能参数"><a href="#功能参数" class="headerlink" title="功能参数"></a>功能参数</h3><h3 id="作业的资源参数以及资源的参数"><a href="#作业的资源参数以及资源的参数" class="headerlink" title="作业的资源参数以及资源的参数"></a>作业的资源参数以及资源的参数</h3><h3 id="调度等级"><a href="#调度等级" class="headerlink" title="调度等级"></a>调度等级</h3>]]></content>
     
     <summary type="html">
     
