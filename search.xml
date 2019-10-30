@@ -248,9 +248,9 @@
   <entry>
     <title>设计模式</title>
     <url>/2019/10/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><a id="more"></a>
+    <content><![CDATA[<a id="more"></a>
 
-<p> <img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_class_struct.jpg" alt> </p>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p> <img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_class_struct.jpg" alt> </p>
 <ul>
 <li>车的类图结构为&lt;<abstract>&gt;，表示车是一个<strong>抽象类</strong>；</abstract></li>
 <li>它有两个<strong>继承类</strong>：小汽车和自行车；它们之间的关系为实现关系，使用带空心箭头的虚线表示；</li>
