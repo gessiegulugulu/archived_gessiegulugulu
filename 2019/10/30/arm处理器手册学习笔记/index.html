@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180fav_tt.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32fav_tt.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16fav_tt.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Cytb6f" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'copy',
+      copy_success: 'copy succeed',
+      copy_failure: 'copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="ARM处理器手册学习笔记ARM9EJ-S Revision:r1p2  Technical Reference Manual  参考官方手册">
+<meta name="keywords" content="嵌入式,arm处理器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arm处理器手册学习笔记">
+<meta property="og:url" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/index.html">
+<meta property="og:site_name" content="Cytb6f">
+<meta property="og:description" content="ARM处理器手册学习笔记ARM9EJ-S Revision:r1p2  Technical Reference Manual  参考官方手册">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030194231422.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030194811219.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030194306129.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030195840112.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030202201953.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030202739922.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030202838677.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030203524548.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030204216848.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030204425050.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030204656278.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030205556487.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030214326181.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030213732929.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030213827860.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030214506767.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030215547766.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030215230136.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030215729021.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030220021485.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030220159701.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030221123204.png">
+<meta property="og:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030221301355.png">
+<meta property="og:updated_time" content="2019-10-30T17:01:23.292Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="arm处理器手册学习笔记">
+<meta name="twitter:description" content="ARM处理器手册学习笔记ARM9EJ-S Revision:r1p2  Technical Reference Manual  参考官方手册">
+<meta name="twitter:image" content="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030194231422.png">
+  <link rel="canonical" href="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>arm处理器手册学习笔记 | Cytb6f</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cytb6f</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JMZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cytb6f">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">arm处理器手册学习笔记
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-30 16:18:39" itemprop="dateCreated datePublished" datetime="2019-10-30T16:18:39+08:00">2019-10-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-31 1:01:23" itemprop="dateModified" datetime="2019-10-31T01:01:23+08:00">2019-10-31</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/嵌入式/" itemprop="url" rel="index"><span itemprop="name">嵌入式</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="ARM处理器手册学习笔记"><a href="#ARM处理器手册学习笔记" class="headerlink" title="ARM处理器手册学习笔记"></a>ARM处理器手册学习笔记</h1><p><strong>ARM9EJ-S Revision:r1p2  Technical Reference Manual</strong> </p>
+<p>参考<a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0222b/I29827.html" target="_blank" rel="noopener">官方手册</a></p>
+<a id="more"></a>
+
+<h2 id="一、编程模型"><a href="#一、编程模型" class="headerlink" title="一、编程模型"></a>一、编程模型</h2><h3 id="1-处理器的操作状态"><a href="#1-处理器的操作状态" class="headerlink" title="1.  处理器的操作状态"></a>1.  处理器的操作状态</h3><p>三种状态：</p>
+<ul>
+<li>ARM state: 32位</li>
+<li>Thumb state： 16位</li>
+<li>Jazelle state：可变长度</li>
+</ul>
+<p>转化：</p>
+<ul>
+<li>三种状态之间可以相互切换</li>
+<li>ARM state 和Thumb交互：允许ARM和Thumb代码混合。</li>
+</ul>
+<h3 id="2-内存格式"><a href="#2-内存格式" class="headerlink" title="2.  内存格式"></a>2.  内存格式</h3><p>内存：有编号的升序线性字节集合</p>
+<p>处理内存单元的两种格式：Big-endian format; Little-endian format</p>
+<ul>
+<li><p>Big-endian format（大端格式）</p>
+<p>字的最高字节存在编号最低的地址中。</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030194231422.png" alt></p>
+<p>用学习组成原理时书上的图表示更加清晰：</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030194811219.png" alt></p>
+</li>
+<li><p>Little-endian format（小端格式）</p>
+<p>字的最低字节存在编号最低的地址中。</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030194306129.png" alt></p>
+<p>同样组成原理时书上的图：</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030195840112.png" alt="image-20191030195840112"></p>
+</li>
+</ul>
+<h3 id="3-指令长度"><a href="#3-指令长度" class="headerlink" title="3.  指令长度"></a>3.  指令长度</h3><ul>
+<li>32bits — ARM state</li>
+<li>16bits — Thumb state</li>
+<li>8的倍数即可，可变长度 — Jazzlle state</li>
+</ul>
+<h3 id="4-数据类型"><a href="#4-数据类型" class="headerlink" title="4.  数据类型"></a>4.  数据类型</h3><ul>
+<li>字节 32位</li>
+<li>半字 16位（半字必须于 2 字节边界对齐）</li>
+<li>字     8位（字必须于 4 字节边界对齐）</li>
+</ul>
+<h3 id="5-工作模式"><a href="#5-工作模式" class="headerlink" title="5. 工作模式"></a>5. 工作模式</h3><p>共有7种工作模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">分类</th>
+<th align="center">处理器工作模式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">用户模式</td>
+<td align="center">用户模式User</td>
+<td align="center">正常程序执行模式</td>
+</tr>
+<tr>
+<td align="center">特权模式</td>
+<td align="center">快速中断模式FIQ</td>
+<td align="center">高优先级中断产生时</td>
+</tr>
+<tr>
+<td align="center">特权模式</td>
+<td align="center">外部中断模式IRQ</td>
+<td align="center">低优先级中断时</td>
+</tr>
+<tr>
+<td align="center">特权模式</td>
+<td align="center">特权模式Supervisor</td>
+<td align="center">一种保护模式</td>
+</tr>
+<tr>
+<td align="center">特权模式</td>
+<td align="center">数据访问模式Abort</td>
+<td align="center">数据或指令预取中止</td>
+</tr>
+<tr>
+<td align="center">特权模式</td>
+<td align="center">未定义指令中止模式Undefined</td>
+<td align="center">执行未定义指令时</td>
+</tr>
+<tr>
+<td align="center">特权模式</td>
+<td align="center">系统模式System</td>
+<td align="center">特权级操作系统</td>
+</tr>
+</tbody></table>
+<p>用户模式以外的模式统称为<strong>特权模式</strong>。特权模式用于服务中断或异常，或访问受保护的资源。 </p>
+<h3 id="6-寄存器"><a href="#6-寄存器" class="headerlink" title="6.  寄存器"></a>6.  寄存器</h3><p>ARM9EJ-S 含有37个寄存器（都为32位）</p>
+<ul>
+<li>31个32位通用寄存器</li>
+<li>6个32位状态寄存器</li>
+</ul>
+<h4 id="6-1-ARM-state-下的寄存器集"><a href="#6-1-ARM-state-下的寄存器集" class="headerlink" title="6.1  ARM state 下的寄存器集"></a>6.1  ARM state 下的寄存器集</h4><p>这种状态下可以同时访问：16个通用寄存器 + 1或2个状态寄存器。</p>
+<p>7种不同的模式下对应的可用寄存器不同。</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030202201953.png" alt></p>
+<p>关于附加寄存器：CPSR：当前程序状态寄存器（condition code flags*&lt;?&gt;*+当前模式位）</p>
+<h4 id="6-2-Thumb-state-下的寄存器集"><a href="#6-2-Thumb-state-下的寄存器集" class="headerlink" title="6.2  Thumb state 下的寄存器集"></a>6.2  Thumb state 下的寄存器集</h4><p>这种状态下可以同时访问：8个通用寄存器 ；PC(计数器)；堆栈指针；LR(link register–r14)；CPSR</p>
+<p>7种不同模式下的对应寄存器：</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030202739922.png" alt></p>
+<h4 id="6-3-两种状态下寄存器的关系"><a href="#6-3-两种状态下寄存器的关系" class="headerlink" title="6.3 两种状态下寄存器的关系"></a>6.3 两种状态下寄存器的关系</h4><p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030202838677.png" alt></p>
+<p>其中，r0-r7为低寄存器，r8-r15为高寄存器。</p>
+<h3 id="7-程序状态寄存器CPSR"><a href="#7-程序状态寄存器CPSR" class="headerlink" title="7. 程序状态寄存器CPSR"></a>7. 程序状态寄存器CPSR</h3><p>含一个CPSR和5个SPSR（保存CPSR的寄存器）。</p>
+<p>CPSR的作用：</p>
+<ul>
+<li>保存最近执行的ALU操作的信息 </li>
+<li>控制中断的启用和禁用 </li>
+<li>设置处理器工作模式。 </li>
+</ul>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030203524548.png" alt></p>
+<h4 id="7-1-条件标志位（N-Z-C-V）"><a href="#7-1-条件标志位（N-Z-C-V）" class="headerlink" title="7.1 条件标志位（N Z C V）"></a>7.1 条件标志位（N Z C V）</h4><p>这些条件标志位会根据程序中的算术或逻辑指令的执行结果进行修改，而且这些条件标志位可由大多数指令检测，以决定指令是否执行。 </p>
+<h4 id="7-2-Q标志位"><a href="#7-2-Q标志位" class="headerlink" title="7.2 Q标志位"></a>7.2 Q标志位</h4><ul>
+<li>可以由某些乘法或小数运算来设置：QADD; QDQDD; QSUB; QDSUB; SMLAxy; SMLAWy</li>
+<li>sticky特性： 当由一条指令设置时，它将保持设置，直到MSR指令明确地清除它并写入CPSR。 &lt;？？有点困惑&gt;</li>
+</ul>
+<h4 id="7-3-J标志位"><a href="#7-3-J标志位" class="headerlink" title="7.3 J标志位"></a>7.3 J标志位</h4><p> CPSR中的J位表示何时处于Jazelle state。 </p>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030204216848.png" style="zoom:67%;">
+
+<h4 id="7-4-控制位"><a href="#7-4-控制位" class="headerlink" title="7.4 控制位"></a>7.4 控制位</h4><p>CPSR 的低8位统称为控制位。 当异常发生时，控制位会改变。当处理器在特权模式下运行时，软件可以操作这些位。 </p>
+<ul>
+<li>中断禁止位：</li>
+</ul>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030204425050.png" style="zoom:67%;">
+
+<ul>
+<li>T位（表示运行状态）：T=0表示ARM state; T=1表示Thumb state</li>
+<li>模式控制位M[4：0]：这些位的组合确定了处理器处于哪种状态</li>
+</ul>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030204656278.png" alt="image-20191030204656278" style="zoom:67%;">
+
+<h4 id="7-5-保留位"><a href="#7-5-保留位" class="headerlink" title="7.5 保留位"></a>7.5 保留位</h4><p>将来处理器可能会使用。</p>
+<h3 id="8-异常"><a href="#8-异常" class="headerlink" title="8. 异常"></a>8. 异常</h3><ul>
+<li>种类</li>
+</ul>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030205556487.png" alt></p>
+<ul>
+<li><p>Reset复位异常：系统上电、系统复位</p>
+</li>
+<li><p>SWI软中断：软中断异常发生时，处理器进入特权模式，执行一些特权模式下的操作系统功能。</p>
+</li>
+<li><p>UNDEF未定义指令异常：当处理器执行协处理器指令时，它必须等待一个外部协处理器应答后，才能真正执行这条指令。若协处理器没有相应，则发生未定义指令异常。 &lt;??协处理器！！！&gt;</p>
+</li>
+<li><p>PABT预取指令异常：当处理器试图去取一条被标记为预取无效的指令时，发生预取异常。</p>
+</li>
+<li><p>IRQ外部中断：当处理器的外部中断请求引脚有效，而且 CPSR 寄存器的 I 控制位被清除时，处理器产生外部中断 IRQ 异常。</p>
+</li>
+<li><p>FIQ快速中断：当处理器的快速中断请求引脚有效且 CPSR 寄存器的 F 控制位被清除时，处理器产生快速中断请求 FIQ 异常。 </p>
+</li>
+<li><p>DABT数据访问中止异常：当数据访问指令的目标地址不存在或者该地址不允许当前指令访问时，处理器产生数据访问中止异常。 </p>
+</li>
+<li><p>BKPT断点指令：类似PABT</p>
+</li>
+</ul>
+<h2 id="二、中断"><a href="#二、中断" class="headerlink" title="二、中断"></a>二、中断</h2><p>ARM9EJ-S提供了两级，固定优先级的异步硬件中断方案。 </p>
+<ul>
+<li>FIQ 提供了对快速中断的支持 </li>
+<li>IRQ 提供对正常优先级中断的支持 </li>
+</ul>
+<h3 id="1-硬件中断"><a href="#1-硬件中断" class="headerlink" title="1. 硬件中断"></a>1. 硬件中断</h3><h4 id="1-1-生成一个中断"><a href="#1-1-生成一个中断" class="headerlink" title="1.1 生成一个中断"></a>1.1 生成一个中断</h4><p>通过nFIQ或nIRQ输入断言产生FIQ或IQR异常。中断必须保持断言状态，直到内核向中断源确认中断已经发生。</p>
+<h4 id="1-2-同步"><a href="#1-2-同步" class="headerlink" title="1.2 同步"></a>1.2 同步</h4><p> nFIQ和nIRQ是同步输入到ARM内核上</p>
+<ul>
+<li>在内核时钟上设置并保持上升曲线</li>
+<li>弱系统出现与内核时钟异步的中断事件，则需要内核外的同步寄存器</li>
+</ul>
+<h4 id="1-3-在中断异常后重启中断"><a href="#1-3-在中断异常后重启中断" class="headerlink" title="1.3 在中断异常后重启中断"></a>1.3 在中断异常后重启中断</h4><ul>
+<li>在重启中断的时候需要确保删除了中断的原始源。</li>
+<li>删除时要考虑内核<strong>流水线特征</strong>和<strong>内存系统</strong></li>
+</ul>
+<h4 id="1-4-中断寄存器"><a href="#1-4-中断寄存器" class="headerlink" title="1.4 中断寄存器"></a>1.4 中断寄存器</h4><ul>
+<li>寄存器不受CLKEN限制，在时钟之外自愈运行</li>
+<li>内核在等待时，也可以准备中断入口</li>
+</ul>
+<h3 id="2-最大中断延迟"><a href="#2-最大中断延迟" class="headerlink" title="2. 最大中断延迟"></a>2. 最大中断延迟</h3><p>可能导致中断的情况：</p>
+<ul>
+<li><p>每当一条新指令计划进入管道的执行阶段时。</p>
+</li>
+<li><p>每当新指令处于执行阶段的第一个执行周期时。</p>
+</li>
+<li><p>当一个协处理器指令在执行阶段被繁忙等待时。</p>
+</li>
+<li><p>当一个在执行阶段被联锁的新指令已经进展到它的第一个活动执行周期时。</p>
+<p>最坏情况下的中断延迟发生在最长的LDM指令导致数据中止时 。</p>
+</li>
+</ul>
+<h3 id="3-最小中断延迟"><a href="#3-最小中断延迟" class="headerlink" title="3. 最小中断延迟"></a>3. 最小中断延迟</h3><p>FIQ或IRQ的最小延迟是输入寄存器能够对请求进行采样的最短时间(一个周期)，加上异常输入时间(三个周期)。在中断被断言后，第一个中断指令进入执行管道阶段四个周期。 </p>
+<h2 id="三、协同处理器"><a href="#三、协同处理器" class="headerlink" title="三、协同处理器"></a>三、协同处理器</h2><p> 协处理器使用协处理器中的pipeline follower&lt;流水线跟踪器？？&gt;来确定它们必须执行的指令。当每条指令从内存到达时，它同时进入ARM pipeline和协处理器pipeline 。 协同处理器决定指令何时被arm内核取到，以便可以将该指令加载到协处理器中，并且使pipeline follower前进。</p>
+<h3 id="1-LDC-与-STC"><a href="#1-LDC-与-STC" class="headerlink" title="1. LDC 与 STC"></a>1. LDC 与 STC</h3><p>所传输的字的数量取决于协处理器如何驱动CHSD[1:0]和CHSE[1:0]总线。&lt;这部分英文官方手册看不太懂，参考了中文手册<a href="https://events.csdn.net/ARM.pdf" target="_blank" rel="noopener">《ARM 系列处理器应用技术完全手册》</a>&gt;</p>
+<p>下图是LDC or STC 传输4个数据的循环计时：</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030214326181.png" alt></p>
+<ul>
+<li><p>LDC</p>
+<p>LDC（Load Coprocessor）指令通过一定的寻址模式从一系列连续的内存单元将数据读取到协处理器的寄存器中。如果协处理器不能成功地执行操作，将产生未定义的指令异常中断。 </p>
+<p>编码格式：</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030213732929.png" alt></p>
+</li>
+<li><p>STC</p>
+<p>STC（Store Coprocessor）指令通过一定的寻址模式将协处理器寄存器中的数据存储到一系列连续的内存单元中。如果协处理器不能成功地执行操作，将产生未定义的指令异常中断。 </p>
+<p>编码格式：</p>
+<p><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030213827860.png" alt></p>
+</li>
+</ul>
+<h3 id="2-MCR与MRC"><a href="#2-MCR与MRC" class="headerlink" title="2. MCR与MRC"></a>2. MCR与MRC</h3><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030214506767.png" style="zoom: 80%;">
+
+<p>首先，PADV is driven HIGH，表示INSTR[31:0]上的指令正在进入管道的解码阶段，协处理器解码新指令，并按要求驱动CHSD[1:0]。 </p>
+<p>在下一个循环中，PADV is driven HIGH，表示指令现在已经被发送到执行阶段。如果条件代码通过，并且指令将被执行，那么PASS signal is driven HIGH，并且CHSD[1:0]握手总线将被检查(其他情况下忽略)。 </p>
+<p>对于任何连续的执行周期，都要检查CHSE[1:0]握手总线。当观察到最后一个条件时，指令进入最后的执行周期。 </p>
+<p>MCR的情况下，WDATA[31:0]总线寄存器数据。MRC的情况下，RDATA[31:0]总线在内存阶段结束采样&lt;？？？&gt;， 在下一个周期中写入目标寄存器。 </p>
+<h3 id="3-MCRR与MRRC"><a href="#3-MCRR与MRRC" class="headerlink" title="3. MCRR与MRRC"></a>3. MCRR与MRRC</h3><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030215547766.png" style="zoom:80%;">
+
+<p>MCRR的情况下，WDATA[31:0]总线在第二个执行周期中使用第一个寄存器数据。MRRC的情况下，RDATA[31:0]总线在第二个执行周期结束和第一个执行中期时采样&lt;？？？&gt;， 在下一个周期中写入目标寄存器。 </p>
+<h3 id="4-连锁MCR"><a href="#4-连锁MCR" class="headerlink" title="4. 连锁MCR"></a>4. 连锁MCR</h3><p> CHSD必须在第二个周期中返回它的值(不连锁)。 </p>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030215230136.png" style="zoom: 67%;">
+
+<h3 id="5-连锁MCRR"><a href="#5-连锁MCRR" class="headerlink" title="5. 连锁MCRR"></a>5. 连锁MCRR</h3><img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030215729021.png" alt="image-20191030215729021" style="zoom: 67%;">
+
+<h3 id="6-CDP"><a href="#6-CDP" class="headerlink" title="6.CDP"></a>6.CDP</h3><p> CDP指令通常在一个循环中执行。当指令进入译码阶段时，PADV is driven HIGH to signal，当指令到达流水线的执行阶段时，PADV再次被驱动。</p>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030220021485.png" alt="image-20191030220021485" style="zoom:80%;"> 
+
+<h3 id="7-特权指令"><a href="#7-特权指令" class="headerlink" title="7. 特权指令"></a>7. 特权指令</h3><p>协处理器可能会限制某些指令只在特权模式下使用。所以协处理器必须跟踪内部的输出。 </p>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030220159701.png" alt="image-20191030220159701" style="zoom: 67%;">
+
+<h3 id="8-自旋-Busy-waiting-和中断"><a href="#8-自旋-Busy-waiting-和中断" class="headerlink" title="8. 自旋(Busy-waiting)和中断"></a>8. 自旋(Busy-waiting)和中断</h3><p>在执行协处理器指令期间，协处理器仍然忙于执行前面的协处理器指令，则允许协处理器暂停或繁忙等待。为此，与解码阶段指令驱动器相关联的协处理器将等待到CHSD[1:0]。当相关的指令进入流水线的执行阶段时，协处理器可以将Wait驱动到CHSE[1:0]上，并根据需要进行尽可能多的循环，以将该指令保持在繁忙等待循环中。 </p>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030221123204.png" alt="image-20191030221123204" style="zoom:67%;">
+
+<h3 id="9-协处理器15MCRs"><a href="#9-协处理器15MCRs" class="headerlink" title="9. 协处理器15MCRs"></a>9. 协处理器15MCRs</h3><p>对于协处理器响应Go握手信号的每个周期，协处理器数据被驱动到IA和DA上如图所示。</p>
+<img src="//gessiegulugulu.github.io/2019/10/30/arm处理器手册学习笔记/image-20191030221301355.png" alt="image-20191030221301355" style="zoom:67%;">
+
+<h3 id="11-连接协处理器"><a href="#11-连接协处理器" class="headerlink" title="11. 连接协处理器"></a>11. 连接协处理器</h3><p>协处理器必须具有32位的连接：</p>
+<ul>
+<li>内存数据</li>
+<li>从内核写入数据</li>
+<li>从内核读数据</li>
+</ul>
+<p>&lt;//TODO ？？后面的完全迷惑，中文手册里面没有对应部分！&gt;</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/嵌入式/" rel="tag"><i class="fa fa-tag"></i> 嵌入式</a>
+            
+              <a href="/tags/arm处理器/" rel="tag"><i class="fa fa-tag"></i> arm处理器</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/23/设计模式/" rel="next" title="设计模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ARM处理器手册学习笔记"><span class="nav-number">1.</span> <span class="nav-text">ARM处理器手册学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、编程模型"><span class="nav-number">1.1.</span> <span class="nav-text">一、编程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-处理器的操作状态"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.  处理器的操作状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-内存格式"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.  内存格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-指令长度"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.  指令长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-数据类型"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.  数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-工作模式"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 工作模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-寄存器"><span class="nav-number">1.1.6.</span> <span class="nav-text">6.  寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-ARM-state-下的寄存器集"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">6.1  ARM state 下的寄存器集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-Thumb-state-下的寄存器集"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">6.2  Thumb state 下的寄存器集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-两种状态下寄存器的关系"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">6.3 两种状态下寄存器的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-程序状态寄存器CPSR"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 程序状态寄存器CPSR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-条件标志位（N-Z-C-V）"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">7.1 条件标志位（N Z C V）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-Q标志位"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">7.2 Q标志位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-J标志位"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">7.3 J标志位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-控制位"><span class="nav-number">1.1.7.4.</span> <span class="nav-text">7.4 控制位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-保留位"><span class="nav-number">1.1.7.5.</span> <span class="nav-text">7.5 保留位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-异常"><span class="nav-number">1.1.8.</span> <span class="nav-text">8. 异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、中断"><span class="nav-number">1.2.</span> <span class="nav-text">二、中断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-硬件中断"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 硬件中断</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-生成一个中断"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">1.1 生成一个中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-同步"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">1.2 同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-在中断异常后重启中断"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">1.3 在中断异常后重启中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-中断寄存器"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">1.4 中断寄存器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-最大中断延迟"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 最大中断延迟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-最小中断延迟"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 最小中断延迟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、协同处理器"><span class="nav-number">1.3.</span> <span class="nav-text">三、协同处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LDC-与-STC"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. LDC 与 STC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-MCR与MRC"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. MCR与MRC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-MCRR与MRRC"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. MCRR与MRRC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-连锁MCR"><span class="nav-number">1.3.4.</span> <span class="nav-text">4. 连锁MCR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-连锁MCRR"><span class="nav-number">1.3.5.</span> <span class="nav-text">5. 连锁MCRR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-CDP"><span class="nav-number">1.3.6.</span> <span class="nav-text">6.CDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-特权指令"><span class="nav-number">1.3.7.</span> <span class="nav-text">7. 特权指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-自旋-Busy-waiting-和中断"><span class="nav-number">1.3.8.</span> <span class="nav-text">8. 自旋(Busy-waiting)和中断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-协处理器15MCRs"><span class="nav-number">1.3.9.</span> <span class="nav-text">9. 协处理器15MCRs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-连接协处理器"><span class="nav-number">1.3.10.</span> <span class="nav-text">11. 连接协处理器</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="JMZ">
+  <p class="site-author-name" itemprop="name">JMZ</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags">
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/gessiegulugulu" title="Github &rarr; https://github.com/gessiegulugulu" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Github</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JMZ</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
