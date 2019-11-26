@@ -59,14 +59,14 @@
   <meta name="description" content="目标：在FGPA板上运行Linux系统即可">
 <meta name="keywords" content="嵌入式,Linux,FGPA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FGPA板运行Linux系统">
+<meta property="og:title" content="FGPA板配置笔记">
 <meta property="og:url" content="https://gessiegulugulu.github.io/2019/10/10/FGPA板运行Linux系统/index.html">
 <meta property="og:site_name" content="Cytb6f">
 <meta property="og:description" content="目标：在FGPA板上运行Linux系统即可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T12:21:51.096Z">
+<meta property="og:updated_time" content="2019-11-26T06:26:21.385Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FGPA板运行Linux系统">
+<meta name="twitter:title" content="FGPA板配置笔记">
 <meta name="twitter:description" content="目标：在FGPA板上运行Linux系统即可">
   <link rel="canonical" href="https://gessiegulugulu.github.io/2019/10/10/FGPA板运行Linux系统/">
 
@@ -82,7 +82,7 @@
   };
 </script>
 
-  <title>FGPA板运行Linux系统 | Cytb6f</title>
+  <title>FGPA板配置笔记 | Cytb6f</title>
   
 
 
@@ -246,7 +246,7 @@
       <meta itemprop="name" content="Cytb6f">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">FGPA板运行Linux系统
+        <h1 class="post-title" itemprop="name headline">FGPA板配置笔记
 
           
         </h1>
@@ -273,7 +273,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-11 20:21:51" itemprop="dateModified" datetime="2019-10-11T20:21:51+08:00">2019-10-11</time>
+                <time title="修改时间：2019-11-26 14:26:21" itemprop="dateModified" datetime="2019-11-26T14:26:21+08:00">2019-11-26</time>
               </span>
             
           
@@ -313,8 +313,23 @@
         <p>目标：在FGPA板上运行Linux系统即可</p>
 <a id="more"></a>
 
-<h3 id="配置电脑环境"><a href="#配置电脑环境" class="headerlink" title="配置电脑环境"></a>配置电脑环境</h3><p>安装串口和USB方面程序</p>
-<p>新到的板子电子的味道有点好闻嗯。然后我还啥也没干</p>
+<h2 id="u-boot引导内核启动"><a href="#u-boot引导内核启动" class="headerlink" title="u-boot引导内核启动"></a>u-boot引导内核启动</h2><ul>
+<li><p>u-boot启动内核的过程可以分为两个阶段，两个阶段的功能如下：<br>1）第一阶段的功能</p>
+<ul>
+<li>硬件设备初始化</li>
+<li>加载 u-boot 第二阶段代码到 RAM 空间</li>
+<li>设置好栈，跳转到第二阶段代码入口</li>
+</ul>
+<p>2）第二阶段的功能</p>
+<ul>
+<li>初始化本阶段使用的硬件设备</li>
+<li>检测系统内存映射</li>
+<li>将内核从 Flash 读读到 RAM 中</li>
+<li>为内核设置启动参数</li>
+<li>调用内核 </li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -402,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置电脑环境"><span class="nav-number">1.</span> <span class="nav-text">配置电脑环境</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u-boot引导内核启动"><span class="nav-number">1.</span> <span class="nav-text">u-boot引导内核启动</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
